@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+
+:root {
+  --workout-font: 'Poppins';
+  --form-font: 'Roboto';
+  --heading-font: 'Lilita One';
+
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: white;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+label {
+  color: var(--color-slate-800);
+  font-weight: 600;
+}
+
+input {
+  @apply bg-white rounded-md p-2 w-full focus:outline-none text-[16px] text-slate-800 font-(family-name:--form-font);
+}
+
+.gradient-bg {
+  @apply bg-linear-to-r from-blue-300 to-sky-100 transition-colors duration-300 hover:bg-blue-600;
+}
