@@ -12,9 +12,19 @@ const mongoose = require('mongoose')
 //import routes
 const workoutRoutes = require('./routes/workouts')
 
+//import CORS
+const cors = require("cors");
+
 
 //middleware
 app.use(express.json())
+
+//cors middleware to allow requests from frontend
+app.use(cors({
+  origin: "https://trainmate-client.onrender.com",
+  methods: ["GET", "POST", "PATCH", "DELETE"],
+  credentials: true
+}));
 
 //routes
 app.use('/api/workouts', workoutRoutes)
