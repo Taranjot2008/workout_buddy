@@ -12,10 +12,13 @@ const Home = () => {
     //local workout state
     const {workouts, dispatch} = useWorkoutsContext()
 
+    //constant for API url
+    const API_url = import.meta.env.VITE_API_URL
+
     //fetching data from API
     useEffect(() => {
         const fetchWorkouts = async () => {
-            const response = await fetch('/api/workouts')
+            const response = await fetch(`${API_url}/api/workouts`)
 
             const json = await response.json()
 
@@ -29,7 +32,7 @@ const Home = () => {
         }
 
         fetchWorkouts()
-    }, [dispatch])
+    }, [API_url, dispatch])
 
     return (
         <main className="home-page">
