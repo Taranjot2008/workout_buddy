@@ -10,6 +10,9 @@ const WorkoutForm = () => {
     const [error, setError] = useState(null)
     const [emptyFields, setEmptyFields] = useState([])
 
+    //constant for api url
+    const API_url = import.meta.env.VITE_API_URL
+
     const {dispatch} = useWorkoutsContext()
 
     //handle form submission
@@ -18,7 +21,7 @@ const WorkoutForm = () => {
 
         const workout = { title, load, reps }
 
-        const response = await fetch('/api/workouts', {
+        const response = await fetch(`${API_url}/api/workouts`, {
             method: 'POST',
             body: JSON.stringify(workout),
             headers: {

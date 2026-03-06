@@ -6,6 +6,9 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 const WorkoutDetails = ({ workout }) => {
 
+    //constant for API url
+    const API_url = import.meta.env.VITE_API_URL
+
     const { dispatch } = useWorkoutsContext()
 
     const timeOfCreation = new Date(workout.createdAt)
@@ -14,7 +17,7 @@ const WorkoutDetails = ({ workout }) => {
     const isOld = ageInHours > 24;
     
     const handleDelete = async () => {
-        const response = await fetch('/api/workouts/' + workout._id, {
+        const response = await fetch(`${API_url}/api/workouts/${workout._id}`, {
             method: 'DELETE'
         })
 
